@@ -119,5 +119,114 @@
     items: 1
   });
 
+
+
+
+
+
+  
+
 })(jQuery);
+
+
+
+
+
+  // 1. Create an array of portfolio items:
+  const portfolioData = [
+    {
+      imgSrc: "img/portfolio/app1.png",
+      title: "VALERIA",
+      category: "In Production",
+      filterClass: "filter-PC",
+      delay: 0,              // wow-delay in seconds (0, 0.1, 0.2, etc.)
+      detailLink: "#"
+    },
+    {
+      imgSrc: "img/portfolio/web1.png",
+      title: "StarShip Stride",
+      category: "Web",
+      filterClass: "filter-WEB",
+      delay: 0.1,
+      detailLink: "#"
+    },
+    {
+      imgSrc: "img/portfolio/app2.png",
+      title: "VALERIA",
+      category: "AIn Productionpp",
+      filterClass: "filter-PC",
+      delay: 0.2,
+      detailLink: "#"
+    },
+ 
+    {
+      imgSrc: "img/portfolio/app3.png",
+      title: "VALERIA",
+      category: "In Production",
+      filterClass: "filter-PC",
+      delay: 0.2,
+      detailLink: "#"
+    },
+    {
+      imgSrc: "img/portfolio/app3.png",
+      title: "VALERIA",
+      category: "In Production",
+      filterClass: "filter-PC",
+      delay: 0.2,
+      detailLink: "#"
+    },
+    {
+      imgSrc: "img/portfolio/app3.png",
+      title: "VALERIA",
+      category: "In Production",
+      filterClass: "filter-PC",
+      delay: 0.2,
+      detailLink: "#"
+    },
+    {
+      imgSrc: "img/portfolio/card1.jpg",
+      title: "AR VR",
+      category: "AR-VR",
+      filterClass: "filter-AR-VR",
+      delay: 0,
+      detailLink: "#"
+    },
+
+
+    // → Add more items here as needed...
+  ];
+
+  // 2. Once the DOM is ready, insert each item into the container
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".portfolio-container");
+    if (!container) return;
+
+    portfolioData.forEach(item => {
+      const col = document.createElement("div");
+      col.className = `col-lg-4 col-md-6 portfolio-item ${item.filterClass}`;
+      if (item.delay) {
+        col.setAttribute("data-wow-delay", `${item.delay}s`);
+      }
+
+      col.innerHTML = `
+        <div class="portfolio-wrap">
+          <img src="${item.imgSrc}" class="img-fluid" alt="${item.title}">
+          <div class="portfolio-info">
+            <h4><a href="#">${item.title}</a></h4>
+            <p>${item.category}</p>
+            <div>
+              <a href="${item.imgSrc}" data-lightbox="portfolio" data-title="${item.title}" class="link-preview" title="Preview">
+                <i class="ion ion-eye"></i>
+              </a>
+              <a href="${item.detailLink}" class="link-details" title="More Details">
+                <i class="ion ion-android-open"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.appendChild(col);
+    });
+  });
 
